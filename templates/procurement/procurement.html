@@ -1,0 +1,47 @@
+<!-- procurement.html -->
+{% extends 'base.html' %}
+
+{% block title %}Procurement Items - Daycare Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Procurement Item Management</h2>
+    <!-- Procurement item list -->
+    <div id="procurement-list">
+        <h3>All Procurement Items</h3>
+        <!-- Procurement item list goes here -->
+        <ul id="procurement-items">
+            <!-- Procurement item items will be inserted here dynamically -->
+        </ul>
+    </div>
+    <!-- Add/edit form -->
+    <div id="procurement-form" style="display: none;">
+        <h3 id="procurement-form-title">Add Procurement Item</h3>
+        <form id="procurementForm">
+            {% csrf_token %}
+            <input type="hidden" id="procurement-id" name="procurement-id">
+            <label for="procurement-name">Item Name:</label><br>
+            <input type="text" id="procurement-name" name="procurement-name" required><br>
+            <label for="procurement-quantity">Quantity:</label><br>
+            <input type="number" id="procurement-quantity" name="procurement-quantity" required><br>
+            <label for="procurement-price">Price (UGX):</label><br>
+            <input type="number" id="procurement-price" name="procurement-price" required><br>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-procurement">Cancel</button>
+        </form>
+    </div>
+    <!-- Procurement item details -->
+    <div id="procurement-details" style="display: none;">
+        <h3>Procurement Item Details</h3>
+        <p id="procurement-details-name"></p>
+        <p id="procurement-details-quantity"></p>
+        <p id="procurement-details-price"></p>
+        <button type="button" id="edit-procurement">Edit</button>
+        <button type="button" id="delete-procurement">Delete</button>
+    </div>
+</div>
+<!-- Add CSS styles -->
+<style>
+    /* Add CSS styles for procurement item management */
+</style>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!-- sitter.html -->
+{% extends 'base.html' %}
+
+{% block title %}Sitters - Daycare Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Sitter Management</h2>
+    <!-- Sitter list -->
+    <div id="sitter-list">
+        <h3>All Sitters</h3>
+        <!-- Sitter list goes here -->
+        <ul id="sitter-items">
+            <!-- Sitter items will be inserted here dynamically -->
+        </ul>
+    </div>
+    <!-- Add/edit form -->
+    <div id="sitter-form" style="display: none;">
+        <h3 id="sitter-form-title">Add Sitter</h3>
+        <form id="sitterForm">
+            {% csrf_token %}
+            <input type="hidden" id="sitter-id" name="sitter-id">
+            <label for="sitter-name">Name:</label><br>
+            <input type="text" id="sitter-name" name="sitter-name" required><br>
+            <label for="sitter-location">Location:</label><br>
+            <input type="text" id="sitter-location" name="sitter-location" required><br>
+            <label for="sitter-dob">Date of Birth:</label><br>
+            <input type="date" id="sitter-dob" name="sitter-dob" required><br>
+            <label for="sitter-gender">Gender:</label><br>
+            <select id="sitter-gender" name="sitter-gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-sitter">Cancel</button>
+        </form>
+    </div>
+    <!-- Sitter details -->
+    <div id="sitter-details" style="display: none;">
+        <h3>Sitter Details</h3>
+        <p id="sitter-details-name"></p>
+        <p id="sitter-details-location"></p>
+        <p id="sitter-details-dob"></p>
+        <p id="sitter-details-gender"></p>
+        <button type="button" id="edit-sitter">Edit</button>
+        <button type="button" id="delete-sitter">Delete</button>
+    </div>
+</div>
+<!-- Add CSS styles -->
+<style>
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        margin-top: 10px;
+        display: block;
+    }
+    input[type="text"],
+    input[type="date"],
+    select {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+    }
+    button {
+        padding: 8px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}

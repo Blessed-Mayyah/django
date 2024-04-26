@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Baby List</title>
+</head>
+<body>
+    <h1>Baby List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Baby Number</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Guardian Name</th>
+                <th>Time of Arrival</th>
+                <th>Parents Names</th>
+                <th>Fee (UGX)</th>
+                <th>Period of Stay</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for baby in babies %}
+            <tr>
+                <td>{{ baby.baby_number }}</td>
+                <td>{{ baby.name }}</td>
+                <td>{{ baby.gender }}</td>
+                <td>{{ baby.age }}</td>
+                <td>{{ baby.location }}</td>
+                <td>{{ baby.guardian_name }}</td>
+                <td>{{ baby.time_of_arrival }}</td>
+                <td>{{ baby.parents_names }}</td>
+                <td>{{ baby.fee_in_ugx }}</td>
+                <td>{{ baby.period_of_stay }}</td>
+                <td>
+                    <a href="{% url 'baby_detail' baby.id %}">View</a> |
+                    <a href="{% url 'edit_baby' baby.id %}">Edit</a> |
+                    <a href="{% url 'delete_baby' baby.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_baby' %}">Add New Baby</a>
+</body>
+</html>

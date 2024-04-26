@@ -1,0 +1,48 @@
+<!-- payment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Payments - Daycare Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Payment Management</h2>
+    <!-- Payment list -->
+    <div id="payment-list">
+        <h3>All Payments</h3>
+        <!-- Payment list goes here -->
+        <ul id="payment-items">
+            <!-- Payment items will be inserted here dynamically -->
+        </ul>
+    </div>
+    <!-- Add/edit form -->
+    <div id="payment-form" style="display: none;">
+        <h3 id="payment-form-title">Record Payment</h3>
+        <form id="paymentForm">
+            {% csrf_token %}
+            <input type="hidden" id="payment-id" name="payment-id">
+            <label for="payment-amount">Amount (UGX):</label><br>
+            <input type="number" id="payment-amount" name="payment-amount" required><br>
+            <label for="payment-type">Payment Type:</label><br>
+            <select id="payment-type" name="payment-type" required>
+                <option value="half_day">Half Day</option>
+                <option value="full_day">Full Day</option>
+                <option value="monthly">Monthly</option>
+            </select><br>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-payment">Cancel</button>
+        </form>
+    </div>
+    <!-- Payment details -->
+    <div id="payment-details" style="display: none;">
+        <h3>Payment Details</h3>
+        <p id="payment-details-amount"></p>
+        <p id="payment-details-type"></p>
+        <button type="button" id="edit-payment">Edit</button>
+        <button type="button" id="delete-payment">Delete</button>
+    </div>
+</div>
+<!-- Add CSS styles -->
+<style>
+    /* Add CSS styles for payment management */
+</style>
+{% endblock %}

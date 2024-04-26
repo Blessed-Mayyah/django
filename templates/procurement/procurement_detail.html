@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Procurement Item Detail</title>
+</head>
+<body>
+    <h1>Procurement Item Detail</h1>
+    <p><strong>Item Name:</strong> {{ procurement_item.name }}</p>
+    <p><strong>Description:</strong> {{ procurement_item.description }}</p>
+    <p><strong>Price (UGX):</strong> {{ procurement_item.price }}</p>
+    <p><strong>Resold to Babies:</strong> {{ procurement_item.resold_to_babies }}</p>
+    <a href="{% url 'edit_procurement_item' procurement_item.id %}">Edit</a> |
+    <a href="{% url 'delete_procurement_item' procurement_item.id %}">Delete</a>
+</body>
+</html>

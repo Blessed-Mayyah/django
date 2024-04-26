@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Sitter List</title>
+</head>
+<body>
+    <h1>Sitter List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sitter Number</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Next of Kin</th>
+                <th>NIN</th>
+                <th>Recommender's Name</th>
+                <th>Religion</th>
+                <th>Education Level</th>
+                <th>Contacts</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sitter in sitters %}
+            <tr>
+                <td>{{ sitter.sitter_number }}</td>
+                <td>{{ sitter.name }}</td>
+                <td>{{ sitter.location }}</td>
+                <td>{{ sitter.date_of_birth }}</td>
+                <td>{{ sitter.gender }}</td>
+                <td>{{ sitter.next_of_kin }}</td>
+                <td>{{ sitter.nin }}</td>
+                <td>{{ sitter.recommender_name }}</td>
+                <td>{{ sitter.religion }}</td>
+                <td>{{ sitter.education_level }}</td>
+                <td>{{ sitter.contacts }}</td>
+                <td>{{ sitter.active }}</td>
+                <td>
+                    <a href="{% url 'sitter_detail' sitter.id %}">View</a> |
+                    <a href="{% url 'edit_sitter' sitter.id %}">Edit</a> |
+                    <a href="{% url 'delete_sitter' sitter.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_sitter' %}">Add New Sitter</a>
+</body>
+</html>

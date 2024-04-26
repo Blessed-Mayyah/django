@@ -1,0 +1,72 @@
+<!-- baby.html -->
+{% extends 'base.html' %}
+
+{% block title %}Babies - Daycare Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Baby Management</h2>
+    <!-- Baby list -->
+    <div id="baby-list">
+        <h3>All Babies</h3>
+        <!-- Baby list goes here -->
+        <ul id="baby-items">
+            <!-- Baby items will be inserted here dynamically -->
+        </ul>
+    </div>
+    <!-- Add/edit form -->
+    <div id="baby-form" style="display: none;">
+        <h3 id="baby-form-title">Add Baby</h3>
+        <form id="babyForm">
+            {% csrf_token %}
+            <input type="hidden" id="baby-id" name="baby-id">
+            <label for="baby-name">Name:</label><br>
+            <input type="text" id="baby-name" name="baby-name" required><br>
+            <label for="baby-gender">Gender:</label><br>
+            <input type="text" id="baby-gender" name="baby-gender" required><br>
+            <label for="baby-age">Age:</label><br>
+            <input type="number" id="baby-age" name="baby-age" required><br>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel-baby">Cancel</button>
+        </form>
+    </div>
+    <!-- Baby details -->
+    <div id="baby-details" style="display: none;">
+        <h3>Baby Details</h3>
+        <p id="baby-details-name"></p>
+        <p id="baby-details-gender"></p>
+        <p id="baby-details-age"></p>
+        <button type="button" id="edit-baby">Edit</button>
+        <button type="button" id="delete-baby">Delete</button>
+    </div>
+</div>
+</div>
+<!-- Add CSS styles -->
+<style>
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        margin-top: 10px;
+        display: block;
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+    }
+    button {
+        padding: 8px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+</style>
+{% endblock %}

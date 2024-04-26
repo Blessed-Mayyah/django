@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Procurement List</title>
+</head>
+<body>
+    <h1>Procurement List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price (UGX)</th>
+                <th>Resold to Babies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for procurement_item in procurement_items %}
+            <tr>
+                <td>{{ procurement_item.name }}</td>
+                <td>{{ procurement_item.description }}</td>
+                <td>{{ procurement_item.price }}</td>
+                <td>{{ procurement_item.resold_to_babies }}</td>
+                <td>
+                    <a href="{% url 'procurement_detail' procurement_item.id %}">View</a> |
+                    <a href="{% url 'edit_procurement_item' procurement_item.id %}">Edit</a> |
+                    <a href="{% url 'delete_procurement_item' procurement_item.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_procurement_item' %}">Add New Item</a>
+</body>
+</html>

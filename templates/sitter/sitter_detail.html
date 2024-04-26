@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Sitter Detail</title>
+</head>
+<body>
+    <h1>Sitter Detail</h1>
+    <p><strong>Sitter Number:</strong> {{ sitter.sitter_number }}</p>
+    <p><strong>Name:</strong> {{ sitter.name }}</p>
+    <p><strong>Location:</strong> {{ sitter.location }}</p>
+    <p><strong>Date of Birth:</strong> {{ sitter.date_of_birth }}</p>
+    <p><strong>Gender:</strong> {{ sitter.gender }}</p>
+    <p><strong>Next of Kin:</strong> {{ sitter.next_of_kin }}</p>
+    <p><strong>NIN:</strong> {{ sitter.nin }}</p>
+    <p><strong>Recommender's Name:</strong> {{ sitter.recommender_name }}</p>
+    <p><strong>Religion:</strong> {{ sitter.religion }}</p>
+    <p><strong>Education Level:</strong> {{ sitter.education_level }}</p>
+    <p><strong>Contacts:</strong> {{ sitter.contacts }}</p>
+    <p><strong>Active:</strong> {{ sitter.active }}</p>
+    <a href="{% url 'edit_sitter' sitter.id %}">Edit</a> |
+    <a href="{% url 'delete_sitter' sitter.id %}">Delete</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Daycare Management{% endblock %}</title>
+    <!-- Add your CSS links or styles here -->
+</head>
+<body>
+    <header>
+        <h1>Daycare Management System</h1>
+        <!-- Add your navigation menu here -->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Content from child templates will be inserted here -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Daycare Management System</p>
+    </footer>
+    <!-- Add your JavaScript links or scripts here -->
+</body>
+</html>

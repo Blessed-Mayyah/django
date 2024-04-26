@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayStar Daycare - Baby Detail</title>
+</head>
+<body>
+    <h1>Baby Detail</h1>
+    <p><strong>Baby Number:</strong> {{ baby.baby_number }}</p>
+    <p><strong>Name:</strong> {{ baby.name }}</p>
+    <p><strong>Gender:</strong> {{ baby.gender }}</p>
+    <p><strong>Age:</strong> {{ baby.age }}</p>
+    <p><strong>Location:</strong> {{ baby.location }}</p>
+    <p><strong>Guardian Name:</strong> {{ baby.guardian_name }}</p>
+    <p><strong>Time of Arrival:</strong> {{ baby.time_of_arrival }}</p>
+    <p><strong>Parents Names:</strong> {{ baby.parents_names }}</p>
+    <p><strong>Fee (UGX):</strong> {{ baby.fee_in_ugx }}</p>
+    <p><strong>Period of Stay:</strong> {{ baby.period_of_stay }}</p>
+    <a href="{% url 'edit_baby' baby.id %}">Edit</a> |
+    <a href="{% url 'delete_baby' baby.id %}">Delete</a>
+</body>
+</html>
